@@ -1,0 +1,124 @@
+body{
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Bungee', cursive;
+    color: white;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
+    background-color: green;
+}
+
+header aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#top-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 15px;
+}
+
+.display {
+    height: 40px;
+    width: 50px;
+    margin: 0 0 5px 0;
+    background-color: red;
+    border: 2px solid black;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 0 0 0;
+}
+
+#timer-display {
+    width: 75px;
+    height: 60px;
+    font-size: 40px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 430px;
+    background-color: rgba(171, 113, 9, .6);
+}
+
+table {
+    background-color: #F5DEB3;
+    border-radius: 5%;
+}
+
+tr td {
+    height: 105px;
+    width: 105px;
+}
+
+td button {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #DDDDDD;
+}
+
+footer {
+    background-color: darksalmon;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "start-area mallet-area"
+}
+
+#start-area {
+    grid-area: start-area;
+    background-color: orange;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    }
+
+#quarters {
+    font-size: 40px;
+}
+
+#start-button {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin: 10px 10px;
+}
+
+#mallet-area {
+    grid-area: mallet-area;
+    background-color: pink; 
+    height: 100%;
+}
+

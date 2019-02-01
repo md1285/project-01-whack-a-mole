@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Whack-A-Mole</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <aside>
+            <h2>MISSED</h2>
+            <section id="missed-display" class="display">00</section>
+        </aside>
+        <div id="top-center">
+            <h1>WHACK-A-MOLE</h1>
+            <section id="timer-display" class="display">00</section>
+        </div>
+        <aside>
+            <h2>SCORE</h2>
+            <section id="score-display" class="display">00</section>
+        </aside>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <td><button value="0"></button></td>
+                <td><button value="1"></button></td>
+                <td><button value="2"></button></td>
+            </tr>
+            <tr>
+                <td><button value="3"></button></td>
+                <td><button value="4"></button></td>
+                <td><button value="5"></button></td>
+            </tr>
+            <tr>
+                <td><button value="6"></button></td>
+                <td><button value="7"></button></td>
+                <td><button value="8"></button></td>
+            </tr>
+            <tr>
+                <td><button value="9"></button></td>
+                <td><button value="10"></button></td>
+                <td><button value="11"></button></td>
+            </tr>
+        </table>
+    </main>
+    <footer>
+        <section id="start-area">
+            <div id="quarters">||</div>
+            <button id="start-button">START</button>
+        </section>
+        <section id="mallet-area"></section>
+    </footer>
+</body>
+
+</html>
