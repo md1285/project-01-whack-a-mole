@@ -1,11 +1,10 @@
-
-
 body{
     height: 100vh;
     width: 100%;
     margin: 0 auto;
     font-family: 'Bungee', cursive;
     color: white;
+    background-color: black;
 }
 
 header {
@@ -13,7 +12,6 @@ header {
     flex-direction: row;
     justify-content: space-around;
     height: 17.5%;
-    background-color: green;
 }
 
 header aside {
@@ -42,8 +40,9 @@ h2 {
     height: 40px;
     width: 50px;
     margin: 0 0 5px 0;
-    background-color: red;
-    border: 2px solid black;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
     font-family: 'Orbitron', sans-serif;
     font-size: 27px;
     display: flex;
@@ -65,12 +64,10 @@ main {
     justify-content: center;
     align-items: center;
     height: 65%;
-    background-color: rgba(171, 113, 9, .6);
 }
 
 
 table {
-    background-color: #F5DEB3;
     border-radius: 5%;
 }
 
@@ -82,13 +79,12 @@ tr td {
 td button {
     height: 100%;
     width: 100%;
+    border: 2px solid white;
     border-radius: 50%;
-    background-color: #DDDDDD;
 }
 
 
 footer {
-    background-color: darksalmon;
     height: 17.5%;
     display: grid;
     grid-template-rows: 1fr;
@@ -99,7 +95,6 @@ footer {
 
 #start-area {
     grid-area: start-area;
-    background-color: orange;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -114,16 +109,26 @@ footer {
 #start-button {
     height: 100px;
     width: 100px;
-    background-color: red;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
     border-radius: 50%;
-    border: 2px solid black;
     margin: 10px 10px;
     outline: none;
 }
 
+#start-button:active {
+    color: black;
+    background-color: white;
+}
+
+button {
+    background-color: transparent;
+}
+
+
 #mallet-area {
     grid-area: mallet-area;
-    background-color: pink; 
     height: 100%;
 }
 
