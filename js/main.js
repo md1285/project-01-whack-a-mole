@@ -1,17 +1,17 @@
 /*----- constants -----*/
 const moleCellsArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-const MAX_TIME = 5;
+const MAX_TIME = 30;
 const sounds = {
     molePopupSound: './sfx/01-popup.mp3',
     malletWhackSound: './sfx/02-mallet-whack.mp3',
     missWhackSound: './sfx/03-dull-whack.mp3',
     startBellSound: './sfx/05-start-bell.mp3'
 };
+const randNums = [null, null, null];
 
 /*----- app's state (variables) -----*/
-let countdown, score, missed, timerStarted, molesStarted, disappearSpeed, popupSpeed, bellOn, highScore;
-//highScore is not in init function because it does NOT get reset. will need to cache it to local storage later.
-highScore = 0;
+let countdown, score, missed, timerStarted, molesStarted, disappearSpeed, popupSpeed, highScore;
+
 
 /*----- cached element references -----*/
 const $startButton = $('footer section button')
@@ -33,10 +33,15 @@ $body.on('click', clickOffBoard);
 
 /*----- functions -----*/
 function init() {
-    countdown = MAX_TIME;
     score = 0;
     missed = 0;
-    bellOn = true;
+    highScore = 0;
+    lvl = 1;
+    gameState();
+}
+
+function gameState() {
+    countdown = MAX_TIME;
     timerStarted = false;
     molesStarted = false;
     disappearSpeed = 1000;
@@ -44,24 +49,27 @@ function init() {
     render();
 }
 
+
 function startGame() {
     $startButton.removeAttr('id');
     $startButton.text(`GET 'EM!`);
-    if (bellOn === true){
-        bellOn = false;
-    }
     if (!timerStarted) {
         startTimer();
     } else {
         playMissWhackSound();
     }
     if (!molesStarted) startMoles();
-    if (countdown < 0) {
+    if (countdown < 0 && lvl < 4) {
+        gameState();
+        startTimer();
+        startMoles();
+    } else if (countdown < 0 && lvl >= 4) {
         init();
         startTimer();
         startMoles();
     }
 }
+
 
 function startTimer() {
     playStartBellSound();
@@ -80,8 +88,8 @@ function startTimer() {
         }
         if (countdown < 0) {
             clearInterval(clockTimer);
-            bellOn = true;
             $startButton.attr('id', 'start-button-click');
+            lvl++;
             render();
         }
     }, 1000);
@@ -89,22 +97,92 @@ function startTimer() {
 
 function startMoles() {
     molesStarted = true;
+    if (lvl === 1) {
+        startMolesLvl1();
+    } else if (lvl === 2) {
+        startMolesLvl2();
+    } else if (lvl === 3) {
+        startMolesLvl3();
+    }
+}
+
+function startMolesLvl1(){
     let moleCounter = setInterval(function () {
-        let randNum = Math.floor((Math.random() * 12));
-        moleCellsArray[randNum] = 1;
-        setTimeout(function () {
-            if (moleCellsArray[randNum] === 1) {
-                moleCellsArray[randNum] = 0;
-                missed++;
-                render();
-            }
-        }, disappearSpeed);
+        generateRandNums();
+        moleCellsArray[randNums[0]] = 1;
         playMolePopupSound();
         render();
+        setTimeout(function () {
+            if (moleCellsArray[randNums[0]] === 1) {
+                moleCellsArray[randNums[0]] = 0;
+                missed++;
+            }
+            render();
+        }, disappearSpeed);
         if (countdown <= 0) {
             clearInterval(moleCounter);
         }
     }, popupSpeed);
+}
+function startMolesLvl2(){
+    let moleCounter = setInterval(function () {
+        generateRandNums();
+        moleCellsArray[randNums[0]] = 1;
+        moleCellsArray[randNums[1]] = 1;
+        playMolePopupSound();
+        render();
+        setTimeout(function () {
+            if (moleCellsArray[randNums[0]] === 1) {
+                moleCellsArray[randNums[0]] = 0;
+                missed++;
+            }
+            if (moleCellsArray[randNums[1]] === 1) {
+                moleCellsArray[randNums[1]] = 0;
+                missed++;
+            }
+            render();
+        }, disappearSpeed);
+        if (countdown <= 0) {
+            clearInterval(moleCounter);
+        }
+    }, popupSpeed);
+}
+function startMolesLvl3(){
+    let moleCounter = setInterval(function () {
+        generateRandNums();
+        moleCellsArray[randNums[0]] = 1;
+        moleCellsArray[randNums[1]] = 1;
+        moleCellsArray[randNums[2]] = 1;
+        playMolePopupSound();
+        render();
+        setTimeout(function () {
+            if (moleCellsArray[randNums[0]] === 1) {
+                moleCellsArray[randNums[0]] = 0;
+                missed++;
+            }
+            if (moleCellsArray[randNums[1]] === 1) {
+                moleCellsArray[randNums[1]] = 0;
+                missed++;
+            }
+            if (moleCellsArray[randNums[2]] === 1) {
+                moleCellsArray[randNums[2]] = 0;
+                missed++;
+            }
+            render();
+        }, disappearSpeed);
+        if (countdown <= 0) {
+            clearInterval(moleCounter);
+        }
+    }, popupSpeed);
+}
+
+function generateRandNums() {
+    do {
+        randNums[0] = Math.floor((Math.random() * 12));
+        randNums[1] = Math.floor((Math.random() * 12));
+        randNums[2] = Math.floor((Math.random() * 12));
+    } while ((randNums[0] === randNums[1]) || (randNums[0] === randNums[2]) || (randNums[1] === randNums[2]))
+    // return [randNum1, randNum2, randNum3];
 }
 
 function whackMole(evt) {
@@ -152,17 +230,20 @@ function render() {
             });
         }
     });
+    
     $scoreDisplay.text(score);
     $missedDisplay.text(missed);
 
-    if (countdown < 0) {
+    if (countdown < 0 && lvl < 4) {
         setTimeout(function(){
-            $startButton.text('TRY AGAIN');
+            $startButton.text('NEXT LVL');
+        }, 1000);
+    } else if (countdown < 0 && lvl >= 4) {
+        setTimeout(function(){
+            $startButton.text('PLAY AGAIN');
         }, 1000);
     }
-
     $highScoreDisplay.text(highScore);
-
 }
 
 function renderClock() {
@@ -216,10 +297,6 @@ function clickOffBoard(evt) {
         playMissWhackSound();
     } 
 }
-
-
-
-
 
 /*----- Initialize Game -----*/
 init();
