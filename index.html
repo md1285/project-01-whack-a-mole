@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Whack-A-Mole</title>
     <link href="https://fonts.googleapis.com/css?family=Bungee|Orbitron" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="js/main.js"></script>
@@ -16,48 +16,46 @@
 
 <body>
     <header>
-        <aside>
+        <div>
             <h2>MISSED</h2>
-            <section id="missed-display" class="display">00</section>
-        </aside>
-        <div id="top-center">
-            <h1>WHACK-A-MOLE</h1>
-            <section id="timer-display" class="display">00</section>
+            <div class="display-wrapper"><section id="missed-display" class="display">0</section></div>
         </div>
-        <aside>
+        <div>
+            <h1>WHACK-A-MOLE</h1>
+            <div class="display-wrapper"><section id="timer-display" class="display">0</section></div>
+        </div>
+        <div>
             <h2>SCORE</h2>
-            <section id="score-display" class="display">00</section>
-        </aside>
+            <div class="display-wrapper"><section id="score-display" class="display">0</section></div>
+        </div>
     </header>
     <main>
-        <table>
-            <tr>
-                <td><button value="0"></button></td>
-                <td><button value="1"></button></td>
-                <td><button value="2"></button></td>
-            </tr>
-            <tr>
-                <td><button value="3"></button></td>
-                <td><button value="4"></button></td>
-                <td><button value="5"></button></td>
-            </tr>
-            <tr>
-                <td><button value="6"></button></td>
-                <td><button value="7"></button></td>
-                <td><button value="8"></button></td>
-            </tr>
-            <tr>
-                <td><button value="9"></button></td>
-                <td><button value="10"></button></td>
-                <td><button value="11"></button></td>
-            </tr>
-        </table>
+        <div id="game-container">
+                <div class="click-container"><button class="click-button" id="button-0" value="0"></button></div>
+                <div class="click-container"><button class="click-button" id="button-1" value="1"></button></div>
+                <div class="click-container"><button class="click-button" id="button-2" value="2"></button></div>
+            
+                <div class="click-container"><button class="click-button" id="button-3" value="3"></button></div>
+                <div class="click-container"><button class="click-button" id="button-4" value="4"></button></div>
+                <div class="click-container"><button class="click-button" id="button-5" value="5"></button></div>
+           
+                <div class="click-container"><button class="click-button" id="button-6" value="6"></button></div>
+                <div class="click-container"><button class="click-button" id="button-7" value="7"></button></div>
+                <div class="click-container"><button class="click-button" id="button-8" value="8"></button></div>
+            
+                <div class="click-container"><button class="click-button" id="button-9" value="9"></button></div>
+                <div class="click-container"><button class="click-button" id="button-10" value="10"></button></div>
+                <div class="click-container"><button class="click-button" id="button-11" value="11"></button></div>
+        </div>
     </main>
     <footer>
         <section id="start-area">
-            <button id="start-button">START</button>
+            <button id="start-button-click" class="click-button start-button">START</button>
         </section>
-        <section id="mallet-area"></section>
+        <section id="high-score">
+                <h2>HIGH SCORE</h2>
+                <div class="display-wrapper"><section id="high-score-display" class="display">0</section></div>   
+        </section>
     </footer>
 </body>
 

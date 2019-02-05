@@ -1,151 +1,312 @@
 body {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
+    position: fixed;
     margin: 0 auto;
-    font-family: 'Bungee', cursive;
+
+    -webkit-tap-highlight-color:  rgba(0, 0, 0, 0); 
+
+
     color: white;
     background-color: black;
+    font-family: 'Bungee', cursive;
     cursor: url('../images/mallet-up.png') 26 52, pointer;
+
+    display: grid;
+    grid-template-rows: 1.25fr 3.75fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer"
 }
 
 body:active {
     cursor: url('../images/mallet-down.png') 26 52, pointer;
 }
 
+
 header {
+    grid-area: header;
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 17.5%;
 }
 
-header aside {
+header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    min-width: 60px;
+}
+
+.display-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
 
-#top-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    width: 8vh;
+    height: 5.5vh;
 
-h1 {
-    font-size: 25px;
-}
+    max-width: 80px;
+    max-height: 70px;
 
-h2 {
-    font-size: 15px;
+    border: 2px solid white;
 }
 
 .display {
-    height: 40px;
-    width: 50px;
-    margin: 0 0 5px 0;
-    color: white;
-    background-color: black;
-    border: 2px solid white;
     font-family: 'Orbitron', sans-serif;
-    font-size: 27px;
+    font-size: 1.75em;
+
+    margin-top: 10%;
+}
+
+h1 {
+    font-size: 1.2em;
+}
+
+h2 {
+    font-size: 1em;
+}
+
+header div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 6px 0 0 0;
-}
-
-#timer-display {
-    width: 75px;
-    height: 60px;
-    font-size: 40px;
 }
 
 main {
+    grid-area: main;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 65%;
+    align-items: center;    
 }
 
-
-table {
-    border-radius: 5%;
-}
-
-tr td {
-    height: 105px;
-    width: 105px;
-    cursor: url('../images/mallet-up.png') 26 52, pointer;
-}
-
-td:active {
-    cursor: url('../images/mallet-down.png') 26 52, pointer;
-}
-
-td button {
+#game-container {
     height: 100%;
-    width: 100%;
+    width: 80%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.click-container {
+    width: 15vh;
+    height: 15vh;
+
+    max-width: 150px;
+    max-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.click-button {
+    height: 95%;
+    width: 95%;
     border: 2px solid white;
     border-radius: 50%;
     cursor: url('../images/mallet-up.png') 26 52, pointer;
+    outline: none;
 }
 
-td button:active {
+.click-button:active {
     cursor: url('../images/mallet-down.png') 26 52, pointer;
-    /* border: 5px solid white; */
 }
 
 
 footer {
-    height: 17.5%;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-        "start-area mallet-area"
-}
+    grid-area: footer;
 
-#start-area {
-    grid-area: start-area;
-    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: baseline;
+    justify-content: space-around;
+    align-items: center;
 }
 
-#quarters {
-    font-size: 40px;
-}
-
-#start-button {
-    height: 100px;
-    width: 100px;
-    color: white;
+.start-button {
     background-color: black;
-    border: 2px solid white;
-    border-radius: 50%;
-    margin: 10px 10px;
-    outline: none;
-    cursor: pointer;
+    color: white;
+    width: 12.5vh;
+    height: 12.5vh;
+    font-size: 1em;
+    font-family: 'Bungee', cursive;
+
+    max-width: 150px;
+    max-height: 150px;
+
 }
 
-#start-button:active {
-    color: black;
+#start-button-click:active {
     background-color: white;
+    color: black;
 }
 
-button {
-    background-color: transparent;
+#high-score {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#high-score > h2 {
+    margin-top: 0;
+    margin-bottom: 1vh;
 }
 
 
-#mallet-area {
-    grid-area: mallet-area;
-    height: 100%;
+
+@media only screen and (max-width: 450px) and (min-height: 800px) {
+    body {
+        grid-template-rows: 1fr 4fr 1fr;
+    }
+
+    .click-container {
+        height: 27vw;
+        width: 27vw;
+    }
+
+    .start-button {
+        height: 23vw;
+        width: 23vw;
+    }
+
+    footer {
+        align-items: flex-start;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    body {
+        grid-template-rows: 1fr 3.75fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header"
+        "main"
+        "footer"
+    }
+    
+    h1 {
+        font-size: 2.5em;
+    }
+    
+    h2 {
+        font-size: 1.75em;
+    }  
+    .display {
+        font-size: 2.75em;
+    }
+
+    .start-button {
+        font-size: 1.25em;
+    }
+
+    /* .display-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        width: 8vh;
+        height: 5.5vh;
+        border: 2px solid white;
+    } */
+    .display-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        width: 8vh;
+        height: 8vh;
+        border: 2px solid white;
+    }  
+}
+
+@media only screen and (min-width: 1024px){
+    body {
+        grid-template-rows: 1fr 4fr;
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas: 
+        "header header"
+        "footer main"
+    }
+    /* #game-container {
+        height: 100%;
+        width: 80%;
+    
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        align-items: center;
+        justify-items: center;
+    } */
+    
+    #game-container {
+        height: 90%;
+        width: 90%;
+    
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    /* footer {
+        grid-area: footer;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    } */
+
+    footer {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    /* .display-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        width: 8vh;
+        height: 5.5vh;
+        border: 2px solid white;
+    } */
+
+    .display-wrapper {    
+        width: 8vw;
+        height: 5vw;
+    }
+
+    .display {
+        font-size: 2.5em;
+    }
+
+    .click-container {
+        height: 20vh;
+        width: 20vh;
+    }
+
+    .start-button {
+        height: 15vw;
+        width: 15vw;
+        font-size: 1.75em;
+    }
+
+    
 }
 
