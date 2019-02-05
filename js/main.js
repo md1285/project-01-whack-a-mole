@@ -1,9 +1,9 @@
 /*----- constants -----*/
 const moleCellsArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-const MAX_TIME = 30;
+const MAX_TIME = 5;
 const sounds = {
-    molePopupSound: "./sfx/01-popup.mp3",
-    malletWhackSound: "./sfx/02-mallet-whack.mp3",
+    molePopupSound: './sfx/01-popup.mp3',
+    malletWhackSound: './sfx/02-mallet-whack.mp3',
     missWhackSound: './sfx/03-dull-whack.mp3',
     startBellSound: './sfx/05-start-bell.mp3'
 };
@@ -46,6 +46,7 @@ function init() {
 
 function startGame() {
     $startButton.removeAttr('id');
+    $startButton.text(`GET 'EM!`);
     if (bellOn === true){
         bellOn = false;
     }
@@ -204,7 +205,7 @@ function playMissWhackSound() {
     player.play();
 }
 
-function playStartBellSound(){
+function playStartBellSound() {
     player.src = sounds.startBellSound;
     player.volume = 1;
     player.play();
