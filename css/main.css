@@ -134,6 +134,14 @@ footer {
     justify-content: space-around;
     align-items: flex-start;
 
+    /* padding-top: 1.5vh; */
+}
+
+#start-area {
+    padding-top: 0vh;
+}
+
+#high-score {
     padding-top: 1.5vh;
 }
 
