@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const moleCellsArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-const MAX_TIME = 30;
+const MAX_TIME = 10;
 const sounds = {
     molePopupSound: './sfx/01-popup.mp3',
     malletWhackSound: './sfx/02-mallet-whack.mp3',
@@ -285,7 +285,7 @@ function renderStartButtonTap() {
 
 function playMolePopupSound() {
     molePopupPlayer.src = sounds.molePopupSound;
-    molePopupPlayer.volume = 0.9;
+    molePopupPlayer.volume = 0.75;
     molePopupPlayer.play();
 }
 
@@ -303,7 +303,7 @@ function playMissWhackSound() {
 
 function playStartBellSound() {
     player.src = sounds.startBellSound;
-    player.volume = 1;
+    player.volume = .75;
     player.play().catch(err => console.log(err));
 }
 
