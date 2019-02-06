@@ -1,11 +1,16 @@
+* {
+    /* Make text unselectable https://stackoverflow.com/questions/6900124/how-to-make-certain-text-not-selectable-with-css */
+    user-select: none; /* Standard */
+}
+
 body {
     height: 100vh;
     width: 100vw;
     position: fixed;
     margin: 0 auto;
 
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
     -webkit-tap-highlight-color:  rgba(0, 0, 0, 0); 
-
 
     color: white;
     background-color: black;

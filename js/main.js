@@ -33,11 +33,11 @@ $body.on('click', clickOffBoard);
 
 /*----- functions -----*/
 function gameState() {
-    if (!localStorage.highScore){
-        localStorage.highScore = 0;
+    if (!localStorage.moleHighScore){
+        localStorage.moleHighScore = 0;
     }
 
-    highScore = localStorage.highScore;
+    highScore = localStorage.moleHighScore;
     gameStarted = false;
     newGame()
 }
@@ -215,7 +215,7 @@ function whackMole(evt) {
 function updateHighScore(){
     if (score > highScore){
         highScore++;
-        localStorage.highScore = highScore;
+        localStorage.moleHighScore = highScore;
         render();
     }
 }
