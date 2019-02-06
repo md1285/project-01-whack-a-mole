@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const moleCellsArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-const MAX_TIME = 30;
+const MAX_TIME = 10;
 const sounds = {
     molePopupSound: './sfx/01-popup.mp3',
     malletWhackSound: './sfx/02-mallet-whack.mp3',
@@ -11,8 +11,6 @@ const randNums = [null, null, null];
 
 /*----- app's state (variables) -----*/
 let countdown, score, missed, timerStarted, molesStarted, disappearSpeed, popupSpeed, highScore;
-//high score is defined outside of init for now, will eventually be stored locally.
-highScore = 0;
 
 
 /*----- cached element references -----*/
@@ -34,14 +32,19 @@ $body.on('click', clickOffBoard);
 
 
 /*----- functions -----*/
-function init() {
+function gameState() {
+    highScore = 0;
+    newGame()
+}
+
+function newGame() {
     score = 0;
     missed = 0;
     lvl = 1;
-    gameState();
+    playLvl();
 }
 
-function gameState() {
+function playLvl() {
     countdown = MAX_TIME;
     timerStarted = false;
     molesStarted = false;
@@ -53,7 +56,7 @@ function gameState() {
 
 function startGame() {
     $startButton.removeAttr('id');
-    $startButton.text(`GET 'EM!`);
+    renderButtonText();
     if (!timerStarted) {
         startTimer();
     } else {
@@ -61,11 +64,11 @@ function startGame() {
     }
     if (!molesStarted) startMoles();
     if (countdown < 0 && lvl < 4) {
-        gameState();
+        playLvl();
         startTimer();
         startMoles();
     } else if (countdown < 0 && lvl >= 4) {
-        init();
+        newGame();
         startTimer();
         startMoles();
     }
@@ -180,7 +183,6 @@ function generateRandNums() {
         randNums[1] = Math.floor((Math.random() * 12));
         randNums[2] = Math.floor((Math.random() * 12));
     } while ((randNums[0] === randNums[1]) || (randNums[0] === randNums[2]) || (randNums[1] === randNums[2]))
-    // return [randNum1, randNum2, randNum3];
 }
 
 function whackMole(evt) {
@@ -252,6 +254,10 @@ function renderClock() {
     $timerDisplay.text(countdown.toString());
 }
 
+function renderButtonText() {
+    $startButton.text(`GET 'EM!`);
+}
+
 function renderStartButtonTap() {
     if ($startButton[0].hasAttribute('id')){
         $startButton.css({
@@ -300,5 +306,5 @@ function clickOffBoard(evt) {
     } 
 }
 
-/*----- Initialize Game -----*/
-init();
+/*----- Set Game State -----*/
+gameState();
