@@ -41,7 +41,7 @@ header {
 header div {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 
     min-width: 60px;
@@ -71,7 +71,6 @@ header div {
 
 h1 {
     font-size: 1.2em;
-    /* text-emphasis: underline; */
     text-decoration: underline;
 }
 
@@ -79,11 +78,11 @@ h2 {
     font-size: 1em;
 }
 
-header div {
+/* header div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+} */
 
 main {
     grid-area: main;
@@ -139,13 +138,13 @@ footer {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
-
-    /* padding-top: 1.5vh; */
+/*adjust padding-top as needed for mobile view. looks good with a little, though*/
+    padding-top: .5vh;
 }
 
-#start-area {
+/* #start-area {
     padding-top: 0vh;
-}
+} */
 
 #high-score {
     padding-top: 1.5vh;
@@ -182,7 +181,7 @@ footer {
 }
 
 
-
+/*code cleaned through here*/
 @media only screen and (max-width: 450px) and (min-height: 800px) {
     body {
         grid-template-rows: .75fr 4fr 1.2fr;
@@ -203,7 +202,7 @@ footer {
     }
 }
 /*below media query locks phones in portraid mode https://code-boxx.com/lock-screen-orientation/*/
-@media only screen and (max-width: 1023px) and (orientation: landscape) {
+@media only screen and (max-width: 1023px) and (max-height: 414px) and (orientation: landscape) {
     body {
         display: flex;
         flex-direction: row;

@@ -27,8 +27,8 @@ const molePopupPlayer = new Audio();
 const $highScoreDisplay = $('#high-score-display');
 
 /*----- event listeners -----*/
-$startButton.on('touchstart', renderStartButtonTap);
 $startButton.on('click', startGame);
+$startButton.on('touchstart', renderStartButtonTap);
 $board.on('click', whackMole)
 $body.on('click', clickOffBoard);
 
