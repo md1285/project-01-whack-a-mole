@@ -11,6 +11,8 @@ const randNums = [null, null, null];
 
 /*----- app's state (variables) -----*/
 let countdown, score, missed, timerStarted, molesStarted, disappearSpeed, popupSpeed, highScore;
+//high score is defined outside of init for now, will eventually be stored locally.
+highScore = 0;
 
 
 /*----- cached element references -----*/
@@ -35,7 +37,6 @@ $body.on('click', clickOffBoard);
 function init() {
     score = 0;
     missed = 0;
-    highScore = 0;
     lvl = 1;
     gameState();
 }
@@ -44,8 +45,8 @@ function gameState() {
     countdown = MAX_TIME;
     timerStarted = false;
     molesStarted = false;
-    disappearSpeed = 1000;
-    popupSpeed = 1500;
+    disappearSpeed = 1500;
+    popupSpeed = 2000;
     render();
 }
 
@@ -79,12 +80,9 @@ function startTimer() {
             renderClock();
             countdown--;
         }
-        if (countdown < 20 && countdown >= 10) {
-            disappearSpeed = 825;
-            popupSpeed = 1000;
-        } else if (countdown < 10 && countdown >= 0) {
-            disappearSpeed = 650;
-            popupSpeed = 850;
+        if ((countdown === Math.floor(MAX_TIME*.667)) || (countdown === Math.floor(MAX_TIME*.334))) {
+            disappearSpeed *= 0.8;
+            popupSpeed *= 0.8;
         }
         if (countdown < 0) {
             clearInterval(clockTimer);
@@ -230,13 +228,17 @@ function render() {
             });
         }
     });
-    
+
     $scoreDisplay.text(score);
     $missedDisplay.text(missed);
 
-    if (countdown < 0 && lvl < 4) {
+    if (countdown < 0 && lvl === 2) {
         setTimeout(function(){
-            $startButton.text('NEXT LVL');
+            $startButton.text('LVL 2');
+        }, 1000);
+    } else if (countdown < 0 && lvl === 3){
+        setTimeout(function(){
+            $startButton.text('LVL 3');
         }, 1000);
     } else if (countdown < 0 && lvl >= 4) {
         setTimeout(function(){
