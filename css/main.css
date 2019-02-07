@@ -18,7 +18,7 @@ body {
     cursor: url('../images/mallet-up.png') 26 52, pointer;
 
     display: grid;
-    grid-template-rows: .75fr 3.75fr 1.5fr;
+    grid-template-rows: .75fr 3.75fr 1.65fr;
     grid-template-columns: 1fr;
     grid-template-areas: 
     "header"
