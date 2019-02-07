@@ -1,6 +1,6 @@
 /*----- constants -----*/
-const moleCellsArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const MAX_TIME = 30;
+const moleCellsArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const sounds = {
     molePopupSound: './sfx/01-popup.mp3',
     malletWhackSound: './sfx/02-mallet-whack.mp3',
@@ -11,7 +11,6 @@ const randNums = [null, null, null];
 
 /*----- app's state (variables) -----*/
 let countdown, score, missed, timerStarted, molesStarted, disappearSpeed, popupSpeed, highScore, gameStarted;
-
 
 /*----- cached element references -----*/
 const $startButton = $('footer section button')
@@ -29,7 +28,6 @@ $startButton.on('click', clickStartButton);
 $startButton.on('touchstart', renderStartButtonTap);
 $board.on('click', whackMole)
 $body.on('click', clickOffBoard);
-
 
 /*----- functions -----*/
 function gameState() {
@@ -85,7 +83,6 @@ function startGame() {
     }
 }
 
-
 function startTimer() {
     timerStarted = true;
     gameStarted = true;
@@ -123,7 +120,6 @@ function startMolesLvl1(){
     let moleCounter = setInterval(function () {
         generateRandNums();
         moleCellsArray[randNums[0]] = 1;
-        // console.log(moleCellsArray);
         playMolePopupSound();
         render();
         setTimeout(function () {
@@ -140,11 +136,11 @@ function startMolesLvl1(){
         }
     }, popupSpeed);
 }
+
 function startMolesLvl2(){
     let moleCounter = setInterval(function () {
         generateRandNums();
         moleCellsArray[randNums[0]] = moleCellsArray[randNums[1]] = 1;
-        // console.log(moleCellsArray);
         playMolePopupSound();
         render();
         setTimeout(function () {
@@ -161,11 +157,11 @@ function startMolesLvl2(){
         }
     }, popupSpeed);
 }
+
 function startMolesLvl3(){
     let moleCounter = setInterval(function () {
         generateRandNums();
         moleCellsArray[randNums[0]] = moleCellsArray[randNums[1]] = moleCellsArray[randNums[2]] = 1;
-        // console.log(moleCellsArray);
         playMolePopupSound();
         render();
         setTimeout(function () {
@@ -221,12 +217,11 @@ function updateHighScore(){
 }
 
 /*----- Render functions -----*/
-
 function render() {
     moleCellsArray.forEach(function (cell, idx) {
         if (cell === 1) {
             $(`button[value="${idx}"]`).css({
-                background: 'url(images/mole2.png)',
+                background: 'url(images/mole.png)',
                 'background-position': 'center',
                 'background-size': '90%',
                 'background-repeat': 'no-repeat',
@@ -237,10 +232,8 @@ function render() {
             });
         }
     });
-
     $scoreDisplay.text(score);
     $missedDisplay.text(missed);
-
     if (countdown < 0 && lvl === 2) {
         setTimeout(function(){
             $startButton.text('LVL 2');
@@ -280,9 +273,7 @@ function renderStartButtonTap() {
     }   
 }
 
-
 /*----- Sound functions -----*/
-
 function playMolePopupSound() {
     molePopupPlayer.src = sounds.molePopupSound;
     molePopupPlayer.volume = 0.75;
@@ -304,7 +295,7 @@ function playMissWhackSound() {
 function playStartBellSound() {
     player.src = sounds.startBellSound;
     player.volume = .75;
-    player.play().catch(err => console.log(err));
+    player.play();
 }
 
 function clickOffBoard(evt) {
