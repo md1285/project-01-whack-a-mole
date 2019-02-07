@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const moleCellsArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-const MAX_TIME = 10;
+const MAX_TIME = 30;
 const sounds = {
     molePopupSound: './sfx/01-popup.mp3',
     malletWhackSound: './sfx/02-mallet-whack.mp3',
