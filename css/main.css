@@ -1,6 +1,8 @@
 * {
-    /* Make text unselectable https://stackoverflow.com/questions/6900124/how-to-make-certain-text-not-selectable-with-css */
-    user-select: none; /* Standard */
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 body {
@@ -9,7 +11,6 @@ body {
     position: fixed;
     margin: 0 auto;
 
-    /* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
     -webkit-tap-highlight-color:  rgba(0, 0, 0, 0); 
 
     color: white;
@@ -38,25 +39,51 @@ body:active {
 header {
     grid-area: header;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
 }
 
 header div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     min-width: 60px;
 }
 
 .display-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     width: 8vh;
     height: 5.5vh;
@@ -83,19 +110,24 @@ h2 {
     font-size: 1em;
 }
 
-/* header div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-} */
-
 main {
     grid-area: main;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;    
 }
 
 #game-container {
@@ -105,7 +137,9 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     justify-items: center;
 }
 
@@ -116,10 +150,20 @@ main {
     max-width: 150px;
     max-height: 150px;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .click-button {
@@ -135,21 +179,25 @@ main {
     cursor: url('../images/mallet-down.png') 26 52, pointer;
 }
 
-
 footer {
     grid-area: footer;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-/*adjust padding-top as needed for mobile view. looks good with a little, though*/
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     padding-top: .5vh;
 }
-
-/* #start-area {
-    padding-top: 0vh;
-} */
 
 #high-score {
     padding-top: 1.5vh;
@@ -174,10 +222,18 @@ footer {
 }
 
 #high-score {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 #high-score > h2 {
@@ -185,9 +241,8 @@ footer {
     margin-bottom: 1vh;
 }
 
-
-/*code cleaned through here*/
 @media only screen and (max-width: 450px) and (min-height: 800px) {
+    
     body {
         grid-template-rows: .75fr 4fr 1.2fr;
     }
@@ -203,31 +258,49 @@ footer {
     }
 
     footer {
-        align-items: flex-start;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
     }
+
 }
-/*below media query locks phones in portraid mode https://code-boxx.com/lock-screen-orientation/*/
+
+/*below media query locks phones in portrait mode*/
 @media only screen and (max-width: 1023px) and (max-height: 414px) and (orientation: landscape) {
+
     body {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;  
     }
+
     #rotate-message {
         display: block;
         font-size: 2em;
     }
+
     header {
         display: none;
     }
+
     main {
         display: none;
     }
+
     footer {
         display: none;
     }  
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -242,15 +315,15 @@ footer {
     }
 
     header {
-        justify-content: space-evenly;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
     }
 
     header div {
         width: 33vw;
     }
 
-    
-    
     h1 {
         font-size: 1.9em;
     }
@@ -266,26 +339,26 @@ footer {
         font-size: 1.25em;
     }
 
-    /* .display-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    
-        width: 8vh;
-        height: 5.5vh;
-        border: 2px solid white;
-    } */
     .display-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     
         width: 8vh;
         height: 8vh;
         border: 2px solid white;
     }  
+
 }
 
 @media only screen and (min-width: 1024px){
@@ -296,31 +369,22 @@ footer {
         "header header"
         "footer main"
     }
-    /* #game-container {
-        height: 100%;
-        width: 80%;
-    
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        align-items: center;
-        justify-items: center;
-    } */
-
-    /* header {
-        grid-area: header;
-    
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    } */
     
     header {
         grid-area: header;
     
+        display: -webkit-box;
+    
+        display: -ms-flexbox;
+    
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
     }
     
     header div {
@@ -339,31 +403,18 @@ footer {
         grid-template-rows: repeat(3, 1fr);
     }
 
-    /* footer {
-        grid-area: footer;
-    
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    } */
-
     footer {
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
-
-    /* .display-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    
-        width: 8vh;
-        height: 5.5vh;
-        border: 2px solid white;
-    } */
 
     .display-wrapper {    
         width: 8vw;
@@ -389,6 +440,4 @@ footer {
         font-size: 1.75em;
     }
 
-    
 }
-

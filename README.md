@@ -18,6 +18,8 @@ In later levels, the game will get more challenging by throwing two and three mo
 
 This game was build using HTML, CSS, and JavaScript utilizing the jQuery library for DOM manipulation.
 
+Additionally, I used [Autoprefixer](https://autoprefixer.github.io/) to optimize my CSS for all browsers, since CSS Grid and Flexbox are not yet universally supported.
+
 ## Getting Started
 
 To start, just click the Start button. The timer will begin counting down, and the moles will start popping up. When the timer reaches zero, the level is over, and the Start button will display which one comes next. Click that button to play the next level. 
@@ -67,3 +69,9 @@ https://creativecommons.org/publicdomain/zero/1.0/
 
 https://openclipart.org/detail/168496/cartoon-mole
 https://openclipart.org/share
+
+## Citations
+
+The game is optimized for mobile, and works best in portrait mode. In order to display "Please Adjust Your Screen" while in landscape mode, I used the fundamentals described in the article below:
+
+[https://code-boxx.com/lock-screen-orientation/](https://code-boxx.com/lock-screen-orientation/)
