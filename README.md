@@ -36,7 +36,7 @@ Given more time, I would like to add a final fourth boss level, featuring a Supe
 
 All sounds and images are either public domain or licensed under Creative Commons.
 
-__Audio Sources__
+__Audio Sources:__
 
 01-popup.mp3
 
@@ -58,7 +58,7 @@ https://freesound.org/people/CapsLok/sounds/184438/
 
 https://freesound.org/people/harrietniamh/sounds/415083/
 
-__Image Sources__
+__Image Sources:__
 
 mallet-up.png and mallet-down.png
 
