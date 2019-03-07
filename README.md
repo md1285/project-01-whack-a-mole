@@ -38,34 +38,34 @@ All sounds and images are either public domain or licensed under Creative Common
 
 __Audio Sources__
 
-#####01-popup.mp3
+01-popup.mp3
 
 https://freesound.org/people/pan14/sounds/263133/
 
-#####02-mallet-whack.mp3
+02-mallet-whack.mp3
 
 https://freesound.org/people/timgormly/sounds/170141/
 
-#####03-dull-whack.mp3
+03-dull-whack.mp3
 
 https://freesound.org/people/worthahep88/sounds/319217/
 
-#####04-start-bell.mp3
+04-start-bell.mp3
 
 https://freesound.org/people/CapsLok/sounds/184438/
 
-#####05-start-bell.mp3
+05-start-bell.mp3
 
 https://freesound.org/people/harrietniamh/sounds/415083/
 
-###Image Sources
+__Image Sources__
 
-#####mallet-up.png and mallet-down.png
+mallet-up.png and mallet-down.png
 
 https://svgsilh.com/image/1278401.html
 https://creativecommons.org/publicdomain/zero/1.0/
 
-#####mole.png
+mole.png
 
 https://openclipart.org/detail/168496/cartoon-mole
 https://openclipart.org/share
