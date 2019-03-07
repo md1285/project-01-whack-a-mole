@@ -36,7 +36,7 @@ Given more time, I would like to add a final fourth boss level, featuring a Supe
 
 All sounds and images are either public domain or licensed under Creative Commons.
 
-__Audio Sources
+__Audio Sources__
 
 #####01-popup.mp3
 
