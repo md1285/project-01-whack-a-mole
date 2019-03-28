@@ -4,7 +4,7 @@
 ![Layout of the Game](./images/whack_a_mole_screenshot.png)
 
 ## Description and Background
-Based on the classic carnival game, Whack-A-Mole features three exhilirating levels of mole-whacking fun! Click the moles as they pop up to whack them with your mallet. 
+Based on the classic carnival game, Whack-A-Mole features three exhilarating levels of mole-whacking fun! Click the moles as they pop up to whack them with your mallet. 
 
 <div style="text-align: center">
 <img src="./images/mole_screenshot.png" alt="drawing" width="150"/>
