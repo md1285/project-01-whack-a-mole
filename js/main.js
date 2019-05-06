@@ -107,61 +107,11 @@ function startTimer() {
 
 function startMoles() {
     molesStarted = true;
-    if (lvl === 1) {
-        startMolesLvl1();
-    } else if (lvl === 2) {
-        startMolesLvl2();
-    } else if (lvl === 3) {
-        startMolesLvl3();
-    }
-}
-
-function startMolesLvl1(){
     let moleCounter = setInterval(function () {
         generateRandNums();
-        moleCellsArray[randNums[0]] = 1;
-        playMolePopupSound();
-        render();
-        setTimeout(function () {
-            moleCellsArray.forEach(function(moleCell, idx){
-                if (moleCell === 1) {
-                    moleCellsArray[idx] = 0;
-                    missed++;
-                }
-            });
-            render();
-        }, disappearSpeed);
-        if (countdown <= 0) {
-            clearInterval(moleCounter);
-        }
-    }, popupSpeed);
-}
-
-function startMolesLvl2(){
-    let moleCounter = setInterval(function () {
-        generateRandNums();
-        moleCellsArray[randNums[0]] = moleCellsArray[randNums[1]] = 1;
-        playMolePopupSound();
-        render();
-        setTimeout(function () {
-            moleCellsArray.forEach(function(moleCell, idx){
-                if (moleCell === 1) {
-                    moleCellsArray[idx] = 0;
-                    missed++;
-                }
-            });
-            render();
-        }, disappearSpeed);
-        if (countdown <= 0) {
-            clearInterval(moleCounter);
-        }
-    }, popupSpeed);
-}
-
-function startMolesLvl3(){
-    let moleCounter = setInterval(function () {
-        generateRandNums();
-        moleCellsArray[randNums[0]] = moleCellsArray[randNums[1]] = moleCellsArray[randNums[2]] = 1;
+        lvl >= 1 && (moleCellsArray[randNums[0]] = 1);
+        lvl >= 2 && (moleCellsArray[randNums[1]] = 1);
+        lvl === 3 && (moleCellsArray[randNums[2]] = 1);
         playMolePopupSound();
         render();
         setTimeout(function () {
